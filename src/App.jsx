@@ -1,12 +1,11 @@
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components';
 
 function App() {
-  return (
-    <div>
-      <h1>Hello from city guide app !!!</h1>
-    </div>
-  );
+  return <Navbar />;
 }
 
 export default App;
