@@ -1,11 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
 import './App.css';
-import { Navbar } from './components';
+import { Footer, Navbar } from './components';
 
 function App() {
-  return <Navbar />;
+  return (
+    <>
+      <Navbar />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
