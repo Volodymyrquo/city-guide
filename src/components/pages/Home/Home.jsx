@@ -1,7 +1,7 @@
 import React from 'react';
 import { InfoConsumer } from '../../../context';
-//import Card from './Card';
-import Info from './Info';
+import Card from './Card';
+//import Info from './Info';
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <div className='row mt-5'>
         <InfoConsumer>
           {(value) =>
-            value.placeInfo.map((item) => <Info key={item.id} item={item} />)
+            value.placeInfo.map((item) => <Card key={item.id} {...item} />)
           }
         </InfoConsumer>
       </div>
