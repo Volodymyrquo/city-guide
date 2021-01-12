@@ -1,11 +1,8 @@
 import React from 'react';
+import { InfoConsumer } from '../../context';
 
 const Home = () => {
-  return (
-    <div>
-      <h1>Home page ... </h1>
-    </div>
-  );
+  return <InfoConsumer>{(data) => <h2>{data}</h2>}</InfoConsumer>;
 };
 
 export default Home;

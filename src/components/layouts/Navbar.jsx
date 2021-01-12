@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBars } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../logo.svg';
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
           aria-controls='navbarSupportedContent'
           aria-expanded='false'
           aria-label='Toggle navigation'>
-          <span className='navbar-toggler-icon'></span>
+          <FontAwesomeIcon icon={faBars} style={{ color: 'white' }} />
         </button>{' '}
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav m-auto mb-2 mb-lg-0'>
