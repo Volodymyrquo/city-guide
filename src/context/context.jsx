@@ -14,7 +14,7 @@ export default class InfoProvider extends Component {
     return (
       <InfoContext.Provider
         value={{
-          info: this.state.info,
+          info: this.state.placeInfo,
           reviews: this.state.reviews,
           maps: this.state.maps,
           headerTitle: this.state.headerTitle,
