@@ -9,7 +9,9 @@ const Home = () => {
       <div className='row mt-5'>
         <InfoConsumer>
           {(value) =>
-            value.placeInfo.map((item) => <Card key={item.id} {...item} />)
+            value.placeInfo.map((item) => (
+              <Card key={item.id} {...item} handleDetail={value.handleDetail} />
+            ))
           }
         </InfoConsumer>
       </div>

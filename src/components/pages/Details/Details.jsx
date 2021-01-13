@@ -1,13 +1,13 @@
 import React from 'react';
-import { InfoConsumer } from '../../context';
-import styled from 'styled-components';
+import { InfoConsumer } from '../../../context';
+import { HeaderDetails } from './HeaderDetails';
+import ReviewCard from './ReviewCard';
 
 const Details = () => {
   return (
     <InfoConsumer>
       {(data) => {
         const {
-          id,
           headerTitle,
           headerSubTitle,
           headerText,
@@ -16,6 +16,15 @@ const Details = () => {
           img,
           maps,
         } = data.detailInfo;
+        const socialIcons = [
+          'fab fa-facebook-f',
+          'fab fa-twitter',
+          'fab fa-google-plus-g',
+          'fab fa-reddit',
+          'fab fa-whatsapp',
+          'fab fa-facebook-messenger',
+        ];
+
         return (
           <>
             <HeaderDetails className='container-fluid align-items-center'>
@@ -25,24 +34,11 @@ const Details = () => {
               {/* social icons */}
               <div className='container mt-5'>
                 <div className='row justify-content-center'>
-                  <div className='col-2'>
-                    <i className='fab fa-facebook-f' />
-                  </div>
-                  <div className='col-2'>
-                    <i className='fab fa-twitter' />
-                  </div>
-                  <div className='col-2'>
-                    <i className='fab fa-google-plus-g' />
-                  </div>
-                  <div className='col-2'>
-                    <i className='fab fa-reddit' />
-                  </div>
-                  <div className='col-2'>
-                    <i className='fab fa-whatsapp' />
-                  </div>
-                  <div className='col-2'>
-                    <i className='fab fa-facebook-messenger' />
-                  </div>
+                  {socialIcons.map((item, key) => (
+                    <div key={key} className='col-2'>
+                      <i className={item} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </HeaderDetails>
@@ -97,7 +93,9 @@ const Details = () => {
                 </div>
                 {/* Reviews tab */}
                 <div id='reviews' className='tab-pane' role='tabpanel'>
-                  Reviews content
+                  {data.reviews.map((item) => (
+                    <ReviewCard key={item.id} {...item} />
+                  ))}
                 </div>
                 {/* Map tab */}
                 <div id='map' className='tab-pane' role='tabpanel'>
@@ -121,47 +119,3 @@ const Details = () => {
 };
 
 export default Details;
-
-const HeaderDetails = styled.header`
-  background: linear-gradient(rgba(109, 109, 109), rgba(255, 255, 255));
-  height: 100vh;
-  text-transform: uppercase;
-  color: var(--mainWhite);
-  text-align: center;
-
-  h1 {
-    padding-top: 10%;
-    color: var(--mainDark);
-  }
-  h4 {
-    color: var(--mainDark);
-  }
-
-  p {
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-bottom: 10%;
-    color: var(--mainDark);
-  }
-
-  i {
-    font-size: 1.875rem;
-    color: var(--mainDark);
-  }
-
-  i:hover {
-    color: var(--mainBlue);
-    cursor: pointer;
-  }
-
-  .nav-item {
-    height: 18.75rem;
-  }
-
-  @media (max-width: 760px) {
-    h1,
-    h4 {
-      color: var(--mainWhite);
-    }
-  }
-`;

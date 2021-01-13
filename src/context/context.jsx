@@ -10,21 +10,24 @@ export default class InfoProvider extends Component {
     news,
     detailInfo,
   };
+
+  handleDetail = (id) => {
+    const item = this.state.placeInfo.find((item) => item.id === id);
+    this.setState(() => {
+      return {
+        detailInfo: item,
+      };
+    });
+  };
   render() {
     return (
       <InfoContext.Provider
         value={{
           placeInfo: this.state.placeInfo,
           reviews: this.state.reviews,
-          maps: this.state.maps,
-          headerTitle: this.state.headerTitle,
-          headerSubTitle: this.state.headerSubTitle,
-          headerText: this.state.headerText,
           detailInfo: this.state.detailInfo,
           news: this.state.news,
-          name: this.state.name,
-          avatar: this.state.avatar,
-          comment: this.state.comment,
+          handleDetail: this.handleDetail,
         }}>
         {this.props.children}
       </InfoContext.Provider>
