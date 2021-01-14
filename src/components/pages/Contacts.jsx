@@ -57,7 +57,7 @@ const Contacts = () => {
                 placeholder='Message'
               />
               <Link className='btn btn-outline-primary text-uppercase mt-1'>
-                <i className='fa fas-paper-plane-o' aria-hidden='true' />
+                <i className='fa fa-paper-plane-o' aria-hidden='true' />
                 <i className='fab fa-telegram-plane' />
                 &nbsp; send
               </Link>
