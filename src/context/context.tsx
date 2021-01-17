@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { placeInfo, reviews, news, detailInfo } from '../assets/data';
+import { initialState,InitialStateType,PlaceInfoType,ReviewsType,NewsType,DetailInfoType } from "./reducer";
 
-const InfoContext = React.createContext();
+const InfoContext = React.createContext(initialState);
 
 export default class InfoProvider extends Component {
-  state = {
-    placeInfo,
-    reviews,
-    news,
-    detailInfo,
-  };
+  state = initialState;
 
-  handleDetail = (id) => {
+  handleDetail = (id:number) => {
     const item = this.state.placeInfo.find((item) => item.id === id);
     this.setState(() => {
       return {
